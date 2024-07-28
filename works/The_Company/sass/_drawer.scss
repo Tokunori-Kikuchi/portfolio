@@ -1,0 +1,265 @@
+@use "reset" as *;
+@use "media" as *;
+@use "header" as *;
+
+/*==================================
+ハンバーガーメニュー
+==================================*/
+// メニュー全体部分
+.drawer {
+    position: fixed;
+    top: 20px;
+    right: 16px;
+    z-index: 300;
+    display: none;
+  
+    @include mq(sp) {
+      display: block;
+    }
+  
+    // ドロワーボタンを押したときの動き
+    &.is-active {
+      transform: translateX(-200px);
+  
+      .drawer__toggle--icon1 {
+        top: 8px;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+      }
+  
+      .drawer__toggle--icon2 {
+        display: none;
+      }
+  
+      .drawer__toggle--icon3 {
+        top: 8px;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+    }
+  }
+  
+  // トグルボタン部分
+  .drawer__toggle {
+    width: 22px;
+    height: 20px;
+    display: block;
+    position: relative;
+  }
+  
+  
+  .drawer__toggle--icon1,
+  .drawer__toggle--icon2,
+  .drawer__toggle--icon3 {
+    position: absolute;
+    display: block;
+    height: 4px;
+    width: 22px;
+    background: #fff;
+    top: 0;
+    left: 0;
+    -webkit-transition: ease .5s;
+    transition: ease .5s;
+  }
+  
+  .drawer__toggle--icon1 {
+    top: 0;
+  }
+  
+  .drawer__toggle--icon2 {
+    top: 8px;
+  }
+  
+  .drawer__toggle--icon3 {
+    top: 16px;
+  }
+
+  //ナビゲーション部分
+  .drawer__menu {
+    width: 200px;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(#000, 0.16);
+    -webkit-transition: ease .5s;
+    transition: ease .5s;
+    z-index: 299;
+    transform: translateX(105%); //100%にすると若干被ってしまう
+  
+    // ボタンクリック時の動き
+    &.is-active {
+     -webkit-transform: translateX(0);
+     transform: translateX(0);
+     overflow-y: auto;
+     -webkit-overflow-scrolling: touch;
+   }
+  
+    ul {
+      li {
+        border-bottom: 1px dotted #707070;
+  
+        a {
+          display: block;
+          color: #707070;
+          text-decoration: none;
+          padding: 18px 20px;
+          position: relative;
+  
+          &::after {
+            content: "";
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 11px;
+            background: url(../img/arrow-b.png) no-repeat center center / contain;
+          }
+        }
+      }
+    }
+  }
+  
+  .drawer__background {
+    &.is-active {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(#000, 0.8);
+      // drawer__menuの後ろに表示させるため298
+      z-index: 298;
+    }
+  }
+
+/*==================================
+フルスクリーンメニュー
+
+
+  .fullscreen {
+    position: fixed;
+    top: 20px;
+    right: 32px;
+    z-index: 200;
+    display: none;
+  
+    @include mq(sp) {
+      display: block;
+    }
+  
+        // ドロワーボタンを押したときの動き
+        &.is-active {
+          .fullscreen__toggle--icon1 {
+            top: 8px;
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+          }
+      
+          .fullscreen__toggle--icon2 {
+            display: none;
+          }
+      
+          .fullscreen__toggle--icon3 {
+            top: 8px;
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+          }
+        }
+    
+  }
+  
+  .fullscreen__toggle {
+    width: 22px;
+    height: 20px;
+    display: block;
+    position: relative;
+  }
+  
+  .fullscreen__toggle--icon1,
+  .fullscreen__toggle--icon2,
+  .fullscreen__toggle--icon3 {
+    position: absolute;
+    display: block;
+    height: 4px;
+    width: 22px;
+    background: #868686cc;
+    top: 0;
+    left: -40px;
+    -webkit-transition: ease .5s;
+    transition: ease .5s;
+  
+  }
+  
+  .fullscreen__toggle--icon1 {
+    top: 0;
+  }
+  
+  .fullscreen__toggle--icon2 {
+    top: 8px;
+  }
+  
+  .fullscreen__toggle--icon3 {
+    top: 16px;
+  }
+  
+  .fullscreen__menu {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    padding: 100px;
+    -webkit-transition: ease .5s;
+    transition: ease .5s;
+    z-index: 199;
+    transform: translateX(105%); //100%にすると若干被ってしまう
+  
+    // ボタンクリック時の動き
+    &.is-active {
+     -webkit-transform: translateX(0);
+     transform: translateX(0);
+     overflow-y: auto;
+     -webkit-overflow-scrolling: touch;
+   }
+  
+    ul {
+      li {
+        a {
+          display: block;
+          color: #fff;
+          font-weight: 700;
+          text-decoration: none;
+          padding: 18px 20px;
+          position: relative;
+  
+          &::after {
+            content: "";
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 16px;
+            background: url(../img/arrow-w.png) no-repeat center center / contain;
+         }
+       }
+     }
+    }
+  }
+  
+  
+  .fullscreen__background {
+    &.is-active {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(#3F51B5CC, 0.9);
+      // fullscreen__menuの後ろに表示させるため298
+      z-index: 198;
+    }
+  }
+==================================*/

@@ -1,0 +1,57 @@
+@use "reset" as *;
+@use "media" as *;
+@use "header" as *;
+@use "main";
+@use "card";
+@use "news";
+@use "price";
+@use "access";
+@use "contact";
+@use "footer";
+@use "totop";
+@use "swiper";
+@use "drawer";
+@use "tab";
+@use "q&a" as *;
+
+//共通部分
+
+$color-main: #3F51B5;
+$color-accent: #E81919;
+$font-en: Lato, "Noto Sans JP", sans-serif;
+$font-jp: "Noto Sans JP", sans-serif;;
+
+
+
+.section__title {
+    font-family: $font-en;
+    font-size: 48px;
+    font-weight: 700;
+    text-align: center;
+    padding-bottom: 12px;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      width: 60px;
+      height: 4px;
+      background: $color-main;
+
+      @include mq(sp) {
+        width: 42px;
+        height: 3px;
+      }
+    }
+
+    @include mq(sp) {
+      font-size: 26px;
+      padding-bottom: 18px;
+    }
+}
+
+//共通部分ここまで
+

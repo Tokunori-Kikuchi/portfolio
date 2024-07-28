@@ -1,0 +1,482 @@
+@charset "UTF-8";
+/* #common
+========================= */
+body {
+  font-family: "Josefin Sans", "Noto Sans JP", sans-serif;
+  color: #3c301e;
+  letter-spacing: 0.05em;
+}
+
+img {
+  width: 100%;
+}
+
+.inner {
+  padding: 0 40px;
+}
+@media screen and (min-width: 768px) {
+  .inner {
+    max-width: 1040px;
+    padding: 0 40px;
+    margin: 0 auto;
+  }
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-heading-main {
+  font-size: 40px;
+  display: block;
+}
+@media screen and (min-width: 768px) {
+  .section-heading-main {
+    font-size: 64px;
+  }
+}
+
+.section-heading-sub {
+  font-size: 12px;
+  display: block;
+}
+
+/* #header
+========================= */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-bottom: 1px solid rgba(241, 238, 228, 0.25);
+  width: 100%;
+  text-align: center;
+  padding: 12px;
+  background-color: #3C301e;
+}
+@media screen and (min-width: 768px) {
+  .header {
+    padding: 16px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header-inner {
+    max-width: 1080px;
+    padding: 0 40px;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+.header-logo {
+  max-width: 200px;
+  margin: 0 auto;
+}
+@media screen and (min-width: 768px) {
+  .header-logo {
+    margin: 0;
+  }
+}
+
+.header-nav {
+  margin-top: 10px;
+}
+
+.header-nav-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 22px;
+}
+@media screen and (min-width: 768px) {
+  .header-nav-list {
+    gap: 40px;
+  }
+}
+
+.header-nav-link {
+  color: #ffffff;
+}
+@media screen and (min-width: 768px) {
+  .header-nav-link {
+    -webkit-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+  }
+  .header-nav-link:hover {
+    opacity: 0.7;
+  }
+}
+
+/*==================================
+ドロワーメニュー（Menuクリック）
+==================================*/
+/* コース一覧をクリックするまでドロワーメニューを隠す */
+.toggle-list {
+  display: none;
+}
+
+/* ナビ開いてる時のボタン */
+#toggle {
+  position: relative;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  text-align: center;
+  -webkit-transform: translateY(0%);
+          transform: translateY(0%);
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
+}
+
+.toggle-list {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.toggle-list:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.toggle-list a {
+  display: block;
+  text-decoration: none;
+  color: #ffffff;
+}
+.toggle-list a:first-child {
+  padding-top: 20px;
+}
+
+.toggle-list a:hover {
+  color: #ef3f98;
+}
+
+#drawer-menu.isActive {
+  color: #ef3f98;
+}
+
+/* #about
+========================= */
+.about {
+  padding: 81px 0 41px;
+  background-color: #f1eee4;
+}
+@media screen and (min-width: 768px) {
+  .about {
+    padding: 100px 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .about-contents {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 40px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+.about-text-contents {
+  margin-top: 20px;
+}
+@media screen and (min-width: 768px) {
+  .about-text-contents {
+    margin-top: 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .about-img {
+    width: 300px;
+  }
+}
+
+.about-text {
+  font-size: 14px;
+  line-height: 2;
+}
+@media screen and (min-width: 768px) {
+  .about-text {
+    font-size: 16px;
+  }
+}
+.about-text + .about-text {
+  margin-top: 16px;
+}
+@media screen and (min-width: 768px) {
+  .about-text + .about-text {
+    margin-top: 30px;
+  }
+}
+
+/* #menu
+========================= */
+.menu {
+  padding: 80px 0;
+  background-color: #f1eee4;
+}
+@media screen and (min-width: 768px) {
+  .menu {
+    padding: 0 0 100px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .menu-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 20px;
+  }
+}
+
+.menu-item + .menu-item {
+  margin-top: 62px;
+}
+@media screen and (min-width: 768px) {
+  .menu-item + .menu-item {
+    margin-top: 0;
+  }
+}
+
+.menu-text-contents {
+  text-align: center;
+  padding: 16px 10px;
+}
+
+.menu-name-main {
+  display: block;
+  font-size: 18px;
+}
+
+.menu-name-sub {
+  display: block;
+  color: #a98c5f;
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+.menu-text {
+  font-size: 14px;
+  color: #a98c5f;
+  margin-top: 16px;
+}
+
+/*==================================
+menu画像のモーダルウィンドウ
+==================================*/
+#modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  background: rgba(95, 95, 95, 0.8);
+  z-index: 10;
+}
+#modal img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+/* #shop
+========================= */
+.shop {
+  background-image: url(../img/sp/bg-shop.png);
+  background-position: center center;
+  background-size: cover;
+  padding: 80px 0;
+}
+@media screen and (min-width: 768px) {
+  .shop {
+    background-image: url(../img/bg-shop.png);
+    padding: 60px 0;
+  }
+}
+
+.shop-inner {
+  padding: 0 20px;
+}
+@media screen and (min-width: 768px) {
+  .shop-inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.section-heading-l {
+  color: #ffffff;
+}
+
+.shop-text {
+  color: #ffffff;
+  text-align: center;
+  font-size: 14px;
+  line-height: 2;
+}
+
+.form {
+  margin-top: 40px;
+}
+@media screen and (min-width: 768px) {
+  .form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 20px;
+  }
+}
+
+.form-input {
+  width: 100%;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: none;
+  font-family: "Josefin Sans", "Noto Sans JP", sans-serif;
+  padding: 14px;
+}
+.form-input::-webkit-input-placeholder {
+  color: #a98c5f;
+}
+.form-input::-moz-placeholder {
+  color: #a98c5f;
+}
+.form-input:-ms-input-placeholder {
+  color: #a98c5f;
+}
+.form-input::-ms-input-placeholder {
+  color: #a98c5f;
+}
+.form-input::placeholder {
+  color: #a98c5f;
+}
+
+.form-submit {
+  border-radius: 4px;
+  border: none;
+  font-family: "Josefin Sans", "Noto Sans JP", sans-serif;
+  display: block;
+  margin: 10px auto 0;
+  width: 120px;
+  padding: 12px 10px;
+  color: #ffffff;
+  background-color: #a98c5f;
+}
+@media screen and (min-width: 768px) {
+  .form-submit {
+    margin-top: 0;
+    -webkit-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+  }
+  .form-submit:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
+}
+
+/* #footer
+========================= */
+.footer {
+  background-color: #3C301e;
+  text-align: center;
+  padding-top: 46px;
+  color: #ffffff;
+}
+
+.footer-logo {
+  width: 200px;
+  margin: 0 auto;
+}
+
+.footer-text {
+  font-size: 12px;
+}
+@media screen and (min-width: 768px) {
+  .footer-text {
+    margin-top: 12px;
+  }
+}
+
+.footer-nav-list {
+  margin-top: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 24px;
+  padding: 0 20px;
+}
+@media screen and (min-width: 768px) {
+  .footer-nav-list {
+    gap: 40px;
+  }
+}
+
+.sns-img {
+  width: 56px;
+}
+
+.footer-nav-link-text {
+  font-size: 12px;
+  margin-top: 12px;
+}
+
+.footer-copy-wrapper {
+  border-top: 1px solid rgba(241, 238, 228, 0.25);
+  padding: 12px;
+  margin-top: 46px;
+}
+
+.footer-copyright {
+  font-size: 12px;
+}
+@media screen and (min-width: 768px) {
+  .footer-copyright {
+    font-size: 13px;
+  }
+}
+
+/*==================================
+  トップへ戻るボタン
+==================================*/
+#page_top {
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  bottom: 24px;
+  right: 60px;
+  background-color: #ffffff;
+  border-radius: 30px;
+  opacity: 1;
+  text-align: center;
+  line-height: 60px;
+}
+@media screen and (max-width: 767px) {
+  #page_top {
+    bottom: 12px;
+    right: 15px;
+  }
+}
