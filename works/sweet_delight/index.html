@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <!-- 文字コードの指定　UTF-8を指定します -->
+    <meta charset="UTF-8" />
+    <!-- スマホやタブレットでもきれいに表示する「レスポンシブ表示」のための記述です -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- サイトのアイコンを設定します -->
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <!-- 検索にヒットしないようにするための記述です -->
+    <meta name="robots" content="noindex" />
+
+    <!-- サイトのタイトルを記述します -->
+    <title>Sweet Delight</title>
+    <!-- サイトの概要を記述します -->
+    <meta name="description" content="素材の美味しさをそのままに" />
+
+    <!-- Google Fontsを読み込むための記述です -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Noto+Sans+JP:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- スタイルシートの読み込みのための記述です -->
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-inner">
+        <h1 class="header-logo">
+          <img src="./img/logo.svg" alt="Sweet Delight" />
+        </h1>
+        <!-- /.header-logo -->
+        <nav class="header-nav">
+          <ul class="header-nav-list">
+            <li class="header-nav-item">
+              <a href="#about" class="header-nav-link">About</a
+              ><!-- /.header-nav-link -->
+            </li>
+            <!-- /.header-nav-item -->
+            <li class="header-nav-item" id="toggle">
+              <a href="#" class="header-nav-link" id="drawer-menu">Menu</a
+              ><!-- /.header-nav-link -->
+              <ul class="toggle-list">
+                <li><a href="#menu">新発売</a></li>
+                <li><a href="#menu">おすすめ</a></li>
+                <li><a href="#menu">期間限定</a></li>
+              </ul>
+            </li><!-- /.toggle-list -->
+            <!-- /.header-nav-item -->
+            <li class="header-nav-item">
+              <a href="#shop" class="header-nav-link">Shop</a
+              ><!-- /.header-nav-link -->
+            </li>
+            <!-- /.header-nav-item -->
+          </ul>
+          <!-- /.header-nav-list -->
+        </nav>
+        <!-- /.header-nav -->
+      </div>
+      <!-- /.header-inner -->
+    </header>
+    <!-- /.header -->
+
+    <div class="fv">
+      <picture class="fv-picture">
+        <source media="(min-width: 768px)" srcset="./img/fv.png" />
+        <img
+          src="./img/sp/fv.png"
+          alt="素材の美味しさをそのままに Sweet Delight"
+        />
+      </picture>
+    </div>
+    <!-- /.fv -->
+
+    <section id="about" class="about">
+      <div class="inner">
+        <h2 class="section-heading">
+          <span class="section-heading-main">About</span
+          ><!-- /.section-heading-main -->
+          <span class="section-heading-sub">ー 当店について ー</span
+          ><!-- /.section-heading-main -->
+        </h2>
+        <!-- /.section-heading -->
+        <div class="about-contents">
+          <img src="./img/about.png" alt="" class="about-img" />
+          <div class="about-text-contents">
+            <p class="about-text">
+              当店では、素材の持つ美味しさや風味を最大限に生かし、シンプルでありながらも、素材の良さを引き出すこだわりのスイーツを提供しています。
+            </p>
+            <!-- /.about-text -->
+            <p class="about-text">
+              自然な味わいを大切にし、素材を感じさせるスイーツで、心に残るひとときをお過ごしください。
+            </p>
+            <!-- /.about-text -->
+          </div>
+          <!-- /.about-text-contents -->
+        </div>
+        <!-- /.about-contents -->
+      </div>
+      <!-- /.inner -->
+    </section>
+    <!-- /.about -->
+
+    <section id="menu" class="menu">
+      <div class="inner">
+        <h2 class="section-heading">
+          <span class="section-heading-main">Menu</span
+          ><!-- /.section-heading-main -->
+          <span class="section-heading-sub">ー 今月のケーキ ー</span
+          ><!-- /.section-heading-main -->
+        </h2>
+        <!-- /.section-heading -->
+        <div class="menu-contents">
+          <ul class="menu-list" id="menu-list">
+            <li class="menu-item">
+              <div class="menu-image">
+                <img src="./img/menu1.png" alt="おすすめ ストロベリーケーキ" />
+              </div>
+              <!-- /.menu-image -->
+              <div class="menu-text-contents">
+                <h3 class="menu-name">
+                  <span class="menu-name-main">ストロベリーケーキ</span
+                  ><!-- /.menu-name-main -->
+                  <span class="menu-name-sub">- Strawberry cake -</span
+                  ><!-- /.menu-name-sub -->
+                </h3>
+                <!-- /.menu-name -->
+                <p class="menu-text"># 旬のあまおうトッピング</p>
+                <!-- /.menu-text -->
+              </div>
+              <!-- /.menu-text-contents -->
+            </li>
+            <!-- /.menu-item -->
+            <li class="menu-item">
+              <div class="menu-image">
+                <img
+                  src="./img/menu2.png"
+                  alt="新発売 ブルーベリーチーズケーキ"
+                />
+              </div>
+              <!-- /.menu-image -->
+              <div class="menu-text-contents">
+                <h3 class="menu-name">
+                  <span class="menu-name-main">ブルーベリーチーズケーキ</span
+                  ><!-- /.menu-name-main -->
+                  <span class="menu-name-sub">- Blueberry cheesecake -</span
+                  ><!-- /.menu-name-sub -->
+                </h3>
+                <!-- /.menu-name -->
+                <p class="menu-text"># フランス産チーズをブレンド</p>
+                <!-- /.menu-text -->
+              </div>
+              <!-- /.menu-text-contents -->
+            </li>
+            <!-- /.menu-item -->
+            <li class="menu-item">
+              <div class="menu-image">
+                <img src="./img/menu3.png" alt="おすすめ チョコレートケーキ" />
+              </div>
+              <!-- /.menu-image -->
+              <div class="menu-text-contents">
+                <h3 class="menu-name">
+                  <span class="menu-name-main">チョコレートケーキ</span
+                  ><!-- /.menu-name-main -->
+                  <span class="menu-name-sub">- Chocolate cake -</span
+                  ><!-- /.menu-name-sub -->
+                </h3>
+                <!-- /.menu-name -->
+                <p class="menu-text"># ベルギー産チョコレート使用</p>
+                <!-- /.menu-text -->
+              </div>
+              <!-- /.menu-text-contents -->
+            </li>
+            <!-- /.menu-item -->
+          </ul>
+          <!-- /.menu-list -->
+        </div>
+        <!-- /.menu-contents -->
+      </div>
+      <!-- /.inner -->
+      <!-- モーダルウィンドウ -->
+      <div id="modal"></div>
+    </section>
+    <!-- /.menu -->
+
+    <section id="shop" class="shop">
+      <div class="shop-inner">
+        <h2 class="section-heading section-heading-l">
+          <span class="section-heading-main">Shop</span
+          ><!-- /.section-heading-main -->
+          <span class="section-heading-sub">ー ショップ情報 ー</span
+          ><!-- /.section-heading-main -->
+        </h2>
+        <!-- /.section-heading -->
+        <div class="shop-contents">
+          <p class="shop-text">
+            ただいま、オンラインストアを準備中です。<br />
+            最新情報は以下より送信いただいた<br />
+            メールアドレスへご案内いたします。
+          </p>
+          <!-- /.shop-text -->
+          <form action="" method="post" class="form">
+            <input
+              type="email"
+              name=""
+              id=""
+              class="form-input"
+              placeholder="sample@example.com"
+            />
+            <button type="submit" class="form-submit">SEND</button>
+          </form>
+        </div>
+        <!-- /.shop-contents -->
+      </div>
+      <!-- /.shop-inner -->
+    </section>
+    <!-- /#shop.shop -->
+
+    <footer class="footer">
+      <div class="footer-logo">
+        <img src="./img/logo.svg" alt="Sweet Delight" />
+      </div>
+      <!-- /.footer-logo -->
+      <p class="footer-text">ー 各SNS更新中 ー</p>
+      <!-- /.footer-text -->
+      <ul class="footer-nav-list">
+        <li class="footer-nav-item">
+          <a
+            href="https://www.instagram.com/?hl=ja"
+            class="footer-nav-link"
+            target="_blank"
+          >
+            <img
+              src="./img/icon-instagram.png"
+              alt="インスタグラム"
+              class="sns-img"
+            />
+            <p class="footer-nav-link-text">メニューご案内</p>
+            <!-- /.footer-nav-link-text --> </a
+          ><!-- /.footer-nav-link -->
+        </li>
+        <!-- /.footer-nav-item -->
+        <li class="footer-nav-item">
+          <a
+            href="https://www.youtube.com/"
+            class="footer-nav-link"
+            target="_blank"
+          >
+            <img
+              src="./img/icon-youtube.png"
+              alt="ユーチューブ"
+              class="sns-img"
+            />
+            <p class="footer-nav-link-text">制作のウラガワ</p>
+            <!-- /.footer-nav-link-text --> </a
+          ><!-- /.footer-nav-link -->
+        </li>
+        <!-- /.footer-nav-item -->
+        <li class="footer-nav-item">
+          <a
+            href="https://twitter.com/home"
+            class="footer-nav-link"
+            target="_blank"
+          >
+            <img
+              src="./img/icon-twitter.png"
+              alt="ツイッター"
+              class="sns-img"
+            />
+            <p class="footer-nav-link-text">お店の混雑状況</p>
+            <!-- /.footer-nav-link-text --> </a
+          ><!-- /.footer-nav-link -->
+        </li>
+        <!-- /.footer-nav-item -->
+      </ul>
+      <!-- /.footer-nav-list -->
+      <div class="footer-copy-wrapper">
+        <small class="footer-copyright"> &copy;2023 Sweet Delight. </small
+        ><!-- /.footer-copyright -->
+      </div>
+      <!-- /.footer-copy-wrapper -->
+    </footer>
+    <!-- /.footer -->
+
+    <!-- トップへ戻るボタン ※footerの下に書くこと-->
+    <div id="page_top"><a href="#" class="pageTop">TOP</a></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

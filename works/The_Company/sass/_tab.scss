@@ -1,0 +1,219 @@
+@use "reset" as *;
+@use "media" as *;
+
+/*=======
+タブ
+========*/
+.tab {
+  padding: 56px 0 142px;
+
+  @include mq(sp) {
+    padding-top: 36px;
+    padding-bottom: 100px;
+  }
+}
+
+.tab__inner {
+
+}
+
+.tab__nav {
+  margin-top: 80px;
+  height: 68px;
+  overflow: auto;
+  border-bottom: 3px solid $color-main;
+
+  @include mq(sp) {
+    border-width: 2px;
+    height: 66px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between; // タブの整列
+
+    li {
+      a,
+      span {
+        text-decoration: none;
+        color: #333333;
+        border-radius: 12px 12px 0 0; // タブの下側に丸みを持たせない
+        font-size: 18px;
+        font-weight: 700;
+        text-align: center;
+        width: 206px;
+        max-width: 100%;
+        display: block;
+        border: 3px solid $color-main;
+        border-bottom: none; // タブのborderを消去
+        padding: 12px;
+        transition: width 0.3s ease 0s;
+        cursor: pointer;
+
+        @include mq(tab) {
+          width: 160px;
+        }
+
+        @include mq(sp) {
+          width: 80px;
+          border-width: 2px;
+          padding: 12px;
+        }
+
+        &.is-active {
+          font-size: 20px;
+          width: 252px;
+          color: #fff;
+          background: $color-main;
+          padding: 0.77em;
+
+          @include mq(tab) {
+            width: 200px;
+          }
+
+          @include mq(sp) {
+            width: 100px;
+            padding: 16px;
+          }
+        }
+
+        &:hover {
+          color: #fff;
+          background: $color-main;
+        }
+      }
+    }
+  }
+}
+
+.tab__content {
+  
+}
+
+.tab-item {
+  padding: 58px 0;
+  display: none;
+
+  &.is-active {
+    display: block;
+  }
+}
+
+.tab-item__lead {
+  text-align: center;
+
+  span {
+    font-size: 20px;
+    font-weight: 700;
+    padding: 0 24px;
+    display: inline-block;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 3px;
+      height: 26px;
+      background: $color-main;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &::before {
+      left: 0;
+      transform: translateY(-50%) rotate(-10deg);
+    }
+
+    &::after {
+      right: 0;
+      transform: translateY(-50%) rotate(10deg);
+    }
+  }
+}
+
+.tab-item__body {
+  display: flex;
+  margin-top: 36px;
+  
+  @include mq(sp) {
+    display: block;
+  }
+}
+
+.tab-item__img {
+  width: 50%;
+
+  img {
+    width: 574px;
+  }
+
+  @include mq(sp) {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.tab-item__content {
+  width: 50%;
+  margin-left: auto;
+  padding: 26px 42px 20px;
+
+  @include mq(tab) {
+    padding-right: 0;
+    padding-top: 16px;
+  }
+
+  @include mq(sp) {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.tab-item__title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.tab-item__info {
+  margin-top: 14px;
+  line-height: (24 / 16);
+}
+
+.tab-item__link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.tab__btn {
+  display: inline-block;
+  position: relative;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+  padding: 1em 1em;
+  color: #fff;
+  background: $color-main;
+  text-decoration: none;
+  min-width: 300px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 30px;
+  box-shadow: 0 3px 6px rgba(#000, 0.16);
+
+  &::after {
+      font-family: "Font Awesome 6 Free";
+      content: "\f054";/*アイコンのユニコード*/
+      position: absolute;/*絶対位置*/
+      font-size: 1em;/*サイズ*/
+      right: 1em;/*アイコンの位置*/
+      top: 50%;/*アイコンの位置*/
+      transform: translateY(-50%);
+      color: #FFFFFF; /*アイコン色*/
+  }
+}

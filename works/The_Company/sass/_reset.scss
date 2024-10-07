@@ -1,0 +1,51 @@
+//reset
+$color-main: #3F51B5;
+$color-accent: #E81919;
+$color-text: #333333;
+$font-en: Lato, "Noto Sans JP", sans-serif;
+$font-jp: "Noto Sans JP", sans-serif;;
+
+// 階層
+$layer: (
+	modal: 100, // モダール
+	default: 1,
+);
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+  }
+  
+  html, body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  body {
+    font-family: Lato, "Noto Sans JP", "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    background: #fff;
+    color: $color-text;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  ol, ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    color: inherit; //親要素を継承する
+  }

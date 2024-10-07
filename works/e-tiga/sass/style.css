@@ -1,0 +1,335 @@
+@charset "UTF-8";
+/* #関数
+========================= */
+/* #共通
+========================= */
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  background: -webkit-gradient(linear, left top, left bottom, from(#EAF4F7), to(#FFF));
+  background: linear-gradient(180deg, #EAF4F7 0%, #FFF 100%);
+}
+
+.utility-btn {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  padding: 9px 54px;
+  border-radius: 48px;
+  -webkit-box-shadow: 4px 3px 26px 0px rgba(0, 0, 0, 0.16);
+          box-shadow: 4px 3px 26px 0px rgba(0, 0, 0, 0.16);
+  background: -webkit-gradient(linear, left top, right top, color-stop(1.75%, #2188DE), color-stop(97.75%, #2BCBC6));
+  background: linear-gradient(90deg, #2188DE 1.75%, #2BCBC6 97.75%);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  white-space: nowrap;
+}
+.utility-btn:hover {
+  opacity: 0.7;
+}
+
+/* #header共通
+========================= */
+.header-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 24px 15px;
+}
+@media screen and (min-width: 768px) {
+  .header-wrap {
+    max-width: 1200px;
+    height: 90px;
+    margin: 0 auto;
+  }
+}
+
+.header-logo a img {
+  width: 160px;
+  height: 32px;
+}
+
+.header-nav {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .header-nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 46px;
+  }
+}
+@media screen and (max-width: 890px) {
+  .header-list {
+    gap: 23px;
+  }
+}
+
+.header-link {
+  color: #333;
+  font-weight: 500;
+  position: relative;
+}
+.header-link:hover {
+  opacity: 0.7;
+}
+
+@media screen and (max-width: 767px) {
+  .sp_hidden {
+    display: none;
+  }
+}
+
+.button {
+  color: #F6F7F7;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+.drawer-icon {
+  width: 40px;
+  height: 20px;
+}
+
+.bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  border-radius: 3px;
+  background: #2082E0;
+}
+.bar:nth-of-type(2) {
+  top: 10px;
+}
+.bar:nth-of-type(3) {
+  top: 20px;
+}
+
+/* #header-1
+========================= */
+.is-active-1::after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 122px;
+  height: 5px;
+  background: #2082DF;
+}
+
+/* #header-2
+========================= */
+.is-active-2::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 122px;
+  height: 5px;
+  background: #2082DF;
+}
+
+/* #header-3
+========================= */
+@media screen and (min-width: 768px) {
+  .wrap-3 {
+    display: block;
+    max-width: 1200px;
+    height: 90px;
+    margin: 0 auto;
+    text-align: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 30px;
+  }
+}
+
+.wrap-3-logo {
+  margin-bottom: 25px;
+}
+
+@media screen and (min-width: 768px) {
+  .header-nav {
+    display: block;
+  }
+}
+
+.is-active-3::after {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 122px;
+  height: 3px;
+  background: #2082DF;
+}
+
+/* #ドロワーメニュー
+========================= */
+.drawer-content {
+  width: 320px;
+  height: 100%;
+  background: #F7BA1A;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 50;
+  padding: 86px 40px 40px;
+}
+
+.drawer-content-link {
+  display: block;
+  padding: 14px 0px;
+  text-align: right;
+  font-weight: 700;
+  letter-spacing: 0.48px;
+}
+
+.drawer-content-button {
+  margin-top: 14px;
+  text-align: right;
+}
+
+@media screen and (min-width: 768px) {
+  .pc_hidden {
+    display: none;
+  }
+}
+
+/* #fv
+========================= */
+@media screen and (min-width: 768px) {
+  .fv-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+.fv-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.fv-img img {
+  width: 398px;
+  height: 285px;
+  margin-bottom: 40px;
+}
+@media screen and (min-width: 768px) {
+  .fv-img img {
+    width: 100%;
+    height: 100%;
+    max-width: 650px;
+    max-height: 438px;
+  }
+}
+
+.fv-contents {
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .fv-contents {
+    margin-top: 40px;
+    text-align: left;
+  }
+}
+
+.fv-logo {
+  width: 250px;
+  height: 50px;
+}
+@media screen and (max-width: 767px) {
+  .fv-logo {
+    margin: 0 auto 20px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .fv-logo {
+    margin-bottom: 24px;
+  }
+}
+
+.fv-text {
+  color: #2B2B2B;
+  font-family: "Noto Sans JP";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 170%;
+  margin-bottom: 20px;
+}
+@media screen and (min-width: 768px) {
+  .fv-text {
+    font-size: 26px;
+  }
+}
+
+.fv-lead {
+  color: #333;
+  font-family: "Noto Sans JP";
+  line-height: 200%;
+  margin-bottom: 30px;
+}
+
+.fv-btn {
+  margin-bottom: 80px;
+  width: 200px;
+}
+@media screen and (min-width: 768px) {
+  .fv-btn {
+    margin-bottom: 115px;
+  }
+}

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WEB CAFE - MENU</title>
+    <meta
+      name="description"
+      content="ブレンドコーヒーとヘルシーなオーガニックフードを提供するカフェ"
+    />
+    <!-- OGP -->
+    <meta property="og:url" content="http://example.com/index.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="WCB Cafe Home" />
+    <meta
+      property="og:description"
+      content="おしゃれなカフェで癒されてみませんか？無添加の食材で体の中からリフレッシュ。"
+    />
+    <meta property="og:image" content="http://example.com/img/ogp.jpg" />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+
+  <body>
+    <div class="big-bg" id="contact">
+      <header class="header wrapper">
+        <div class="header-wrap">
+          <div class="header-logo">
+            <h1 class="header-logp-main">
+              <a href="index.html"
+                ><img src="./img/logo.svg" alt="WEBカフェホーム"
+              /></a>
+            </h1>
+          </div>
+          <nav class="header-nav">
+            <ul class="header-list">
+              <li class="header-item"><a href="news.html">news</a></li>
+              <li class="header-item"><a href="menu.html">menu</a></li>
+              <li class="header-item"><a href="contact.html">contact</a></li>
+            </ul>
+            <div class="header-btn">
+              <a class="utility-btn" href="contact.html">contact</a>
+            </div>
+          </nav>
+          <div id="js-drawer-icon" class="drawer-icon pc_hidden">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+        </div>
+      </header>
+
+      <div id="js-drawer-content" class="drawer-content">
+        <nav class="drawer-content-menu">
+          <a href="news.html" class="drawer-content-link">news</a
+          ><!-- /.drawer-content-link --><a
+            href="menu.html"
+            class="drawer-content-link"
+            >menu</a
+          ><!-- /.drawer-content-link --><a
+            href="contact.html"
+            class="drawer-content-link"
+            >contact</a
+          ><!-- /.drawer-content-link -->
+          <div class="drawer-content-button">
+            <a href="#" class="utility-btn">お問い合わせ</a
+            ><!-- /.drawer-content-button button -->
+          </div>
+          <!-- /.drawer-content-button -->
+        </nav>
+        <!-- /.drawer-content-menu -->
+      </div>
+      <!-- /.drawer-content -->
+
+      <div class="wrapper">
+        <h2 class="page-title">CONTACT</h2>
+        <!-- /.page-title -->
+        <p class="page-subtitle">
+          お問い合わせは、以下の内容を<br />ご記入いただき送信してください。
+        </p>
+        <!-- /.page-subtitle -->
+        <form
+          id="js-form"
+          class="contact-form"
+          action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScT7g8sFhD0hS8UMpeC43qPMHNMh515Vp6MGu2Pevmpeu6Blg/formResponse"
+        >
+          <div class="contact-table">
+            <!-- type="text" -->
+            <div class="contact-item">
+              <div class="contact-head">
+                <label for="your-name" class="contact-head__label">名前</label>
+                <span class="contact-head__tag">必須</span>
+              </div>
+              <div class="contact-body">
+                <input
+                  type="text"
+                  name="entry.2064351601"
+                  id="your-name"
+                  placeholder="山田太郎"
+                  class="form-text"
+                  required
+                />
+              </div>
+            </div>
+            <!-- type="email" -->
+            <div class="contact-item">
+              <div class="contact-head">
+                <label for="your-email" class="contact-head__label"
+                  >メール</label
+                >
+                <span class="contact-head__tag">必須</span>
+              </div>
+              <div class="contact-body">
+                <input
+                  type="email"
+                  name="emailAddress"
+                  id="your-email"
+                  placeholder="info@example.com"
+                  class="form-text"
+                  required
+                />
+              </div>
+            </div>
+            <!-- type="radio" -->
+            <div class="contact-item">
+              <div class="contact-head">
+                <div class="contact-head__label">性別</div>
+                <span class="contact-head__tag">必須</span>
+              </div>
+              <div class="contact-body">
+                <div class="radio-wrap">
+                  <label for="man" class="contact-radio">
+                    <input
+                      class="contact-radio__input"
+                      type="radio"
+                      id="man"
+                      name="entry.417298347"
+                      value="男"
+                    />
+                    <span class="contact-radio__text">男</span>
+                  </label>
+                  <label for="woman" class="contact-radio">
+                    <input
+                      class="contact-radio__input"
+                      type="radio"
+                      id="woman"
+                      name="entry.417298347"
+                      value="女"
+                    />
+                    <span class="contact-radio__text">女</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <!-- type="select" -->
+            <div class="contact-item">
+              <div class="contact-head">
+                <label for="contents" class="contact-head__label">内容</label>
+                <span class="contact-head__tag">必須</span>
+              </div>
+              <div class="contact-body">
+                <div class="select-wrap">
+                  <select
+                    id="contents"
+                    name="entry.1484656813"
+                    class="form-select"
+                  >
+                    <option value="選択" disabled selected>選択</option>
+                    <option value="お知らせについて">お知らせについて</option>
+                    <option value="メニューについて">メニューについて</option>
+                    <option value="その他">その他</option>
+                  </select>
+                </div>
+                <!-- /.select-wrap -->
+              </div>
+            </div>
+            <!-- textarea -->
+            <div class="contact-item">
+              <div class="contact-head">
+                <label for="your-message" class="contact-head__label"
+                  >メッセージ</label
+                >
+                <span class="contact-head__tag">必須</span>
+              </div>
+              <div class="contact-body">
+                <textarea
+                  id="your-message"
+                  name="entry.129511375"
+                  cols="30"
+                  rows="10"
+                  placeholder="当店にお問い合わせがある方は、こちらにご相談内容をご入力ください。3営業日以内にご返信いたします。"
+                  class="form-textarea"
+                  required
+                ></textarea>
+              </div>
+            </div>
+          </div>
+          <!-- privacy-policy -->
+          <div class="privacy-policy">
+            <div class="contact-row">
+              <div class="contact-body-checkbox">
+                <label for="privacy" class="contact-privacy"
+                  ><input
+                    id="privacy"
+                    type="checkbox"
+                    name="entry.1265831652"
+                    class="contact-privacy-input"
+                    value="個人情報保護方針に同意する"
+                    required
+                  />
+                  <span class="contact-checkbox-text"
+                    ><a
+                      class="contact-privacy-link"
+                      href="https://www.kiyac.app/privacypolicy/v39Lk0NNdZxEN7uSkHta"
+                      target="_blank"
+                      >個人情報保護方針</a
+                    >に同意する</span
+                  >
+                </label>
+              </div>
+            </div>
+          </div>
+          <!-- contact__button -->
+          <div class="contact-footer-submit">
+            <button
+              id="js-submit"
+              class="util-link -submit disabled"
+              type="submit"
+              disabled
+            >
+              送信する
+            </button>
+          </div>
+        </form>
+        <div class="contact-message" id="js-success">
+          <p>送信完了しました。<br />ありがとうございました。</p>
+        </div>
+        <div class="contact-message -error" id="js-error">
+          <p>
+            送信に失敗しました。<br />ページを更新して再度送信してください。
+          </p>
+        </div>
+      </div>
+      <!-- /.wrapper -->
+    </div>
+    <!-- /#contact.big-bg -->
+
+    <section id="location">
+      <div class="wrapper">
+        <div class="location-info">
+          <h3 class="subtitle">カフェ東駅前店</h3>
+          <!-- /.subtitle -->
+          <p>住所：東京都〇〇区</p>
+          <p>〇〇〇〇〇〇〇〇 000-22-1</p>
+          <p>電話：03-1111-1111</p>
+          <p>営業時間：10：00～20：00</p>
+          <p>定休日：毎週水曜日</p>
+        </div>
+        <!-- /.location-info -->
+        <div class="location-map">
+          <iframe
+            src="https://www.google.com/maps/d/u/0/embed?mid=1xjxrjCgJeoVKOhOqPPBI39gQU04sGPk&ehbc=2E312F"
+            width="640"
+            height="480"
+          ></iframe>
+        </div>
+        <!-- /.location-map -->
+      </div>
+      <!-- /.wrapper -->
+    </section>
+    <!-- /#location -->
+
+    <section id="sns">
+      <div class="wrapper">
+        <div class="sns-box">
+          <h3 class="subtitle">Facebook</h3>
+          <!-- /.subtitle -->
+          <iframe
+            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffacebook&tabs=timeline&width=340&height=315&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+            width="340"
+            height="315"
+            style="border: none; overflow: hidden"
+            scrolling="no"
+            frameborder="0"
+            allowfullscreen="true"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+          ></iframe>
+        </div>
+        <!-- /.sns-box -->
+        <div class="sns-box">
+          <h3 class="subtitle">X</h3>
+          <!-- /.subtitle -->
+          <a
+            class="twitter-timeline"
+            data-lang="ja"
+            data-height="315"
+            data-theme="dark"
+            href="https://twitter.com/XDevelopers?ref_src=twsrc%5Etfw"
+            >Tweets by XDevelopers</a
+          >
+          <script
+            async
+            src="https://platform.twitter.com/widgets.js"
+            charset="utf-8"
+          ></script>
+        </div>
+        <!-- /.sns-box -->
+        <div class="sns-box">
+          <h3 class="subtitle">Youtube</h3>
+          <!-- /.subtitle -->
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/CX0kqwJhM-c?si=-MtXPQP9bqlAa_GP"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <!-- /.sns-box -->
+      </div>
+      <!-- /.wrapper -->
+    </section>
+    <!-- /#sns -->
+
+    <footer class="footer">
+      <div class="footer-wrap wrapper">
+        <p class="copyright"><small>&copy; 2019 Manabox</small></p>
+        <!-- /.copyright -->
+      </div>
+      <!-- /.footer-wrap -->
+    </footer>
+    <!-- /.footer -->
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>

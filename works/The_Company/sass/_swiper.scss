@@ -1,0 +1,160 @@
+@use "reset" as *;
+@use "media" as *;
+@use "header" as *;
+
+/*==================================
+main部分swiperのcss
+==================================*/
+.swiper-button-next {
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    background: transparent url(../img/arrow-next.png) no-repeat center center / contain;
+    right: calc(50% - #{$layout-width-inner / 2});
+  
+    &::after {
+      display: none;
+    }
+  
+    @include mq(tab) {
+      right: 1em;
+    }
+  
+    @include mq(sp) {
+      right: 1em;
+    }
+  }  
+
+  .swiper-button-prev {
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    background: transparent url(../img/arrow-prev.png) no-repeat center center / contain;
+    left: calc(50% - #{$layout-width-inner / 2});
+  
+    &::after {
+      display: none;
+    }
+  
+    @include mq(tab) {
+      left: 1em;
+    }
+  
+    @include mq(sp) {
+      left: 1em;
+    }
+  }
+
+  .swiper-pagination-bullet {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, 
+  .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: auto 4px;
+  }
+  
+  .swiper-pagination-bullet {
+    background: #FFFFFF9E;
+    opacity: 1;
+  }
+  
+  .swiper-pagination-bullet-active {
+    background: #2F7DC8;
+    opacity: 1;
+  }
+
+/*==================================
+card部分のswiper用CSS
+==================================*/
+
+  .card-swiper {
+    padding-bottom: 3em;
+  }
+
+  .card__items--slide {
+    margin-top: 80px;
+    display: flex;
+  
+    @include mq(sp) {
+      margin-top: 42px;
+    }
+  }
+
+  .card__item--slide{
+    //calc(cardを3列に - 余白24pxを3つのパーツで三等分する)
+    background: #fff;
+    padding: 16px;
+    border-radius: 4px;
+  
+    @include mq(pc) {
+      width: 100%;
+      //3倍した次の要素以外(not)に付与される処理
+      &:not(:nth-child(3n + 1)) {
+        margin-left: 24px;
+      }
+  
+      //最初の3つの要素以外に付与される処理
+      &:nth-child(n + 4) {
+        margin-top: 24px;
+      }
+    }
+  
+    //calc(tabではcardを2列に - 余白24pxを2つのパーツで二等分する)
+    @include mq(tab) {
+      width: 100%;
+      //2倍した次の要素以外(not)に付与される処理
+      &:not(:nth-child(2n + 1)) {
+        margin-left: 24px;
+      }
+  
+      //最初の3つの要素以外に付与される処理
+      &:nth-child(n + 3) {
+        margin-top: 24px;
+      }
+    }
+  
+    @include mq(sp) {
+      width: 100%;
+      margin-left: 0;
+  
+      //最初の2の要素以外に付与される処理
+      &:nth-child(n + 2) {
+        margin-top: 24px;
+      }
+  
+    }
+  }
+
+// card用のボタン小さいため飾り  
+.card__swiper-button-prev,
+.card__swiper-button-next {
+	top: auto;
+	bottom: 1em;
+	width: 12px;
+	height: 12px;
+	margin: 0;
+	z-index: 10;
+
+	&::after {
+		content: "";
+	}
+}
+
+  .card__swiper-button-next {
+    background: transparent url(../img/arrow-next2.png) no-repeat center center / contain;
+    right: auto;
+    left: calc(50% + 80px);
+    }
+
+  .card__swiper-button-prev {
+    background: transparent url(../img/arrow-prev2.png) no-repeat center center / contain;
+    right: calc(50% + 80px);
+    left: auto;
+    }
+
+//.card__swiper-paginationだとswiperに元から実装されているcssより詳細度が低いため、idにする。
+#card__swiper-pagination {
+  z-index: 10;
+}

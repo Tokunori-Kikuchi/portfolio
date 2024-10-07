@@ -1,0 +1,92 @@
+@use "media" as *;
+@use "reset" as *;
+
+//card
+.card {
+    background: #EFEFEF;
+    padding: 100px 0 120px;
+   
+    @include mq(sp) {
+     padding-top: 50px;
+     padding-bottom: 60px;
+    }
+   }
+
+   .card__items {
+     margin-top: 80px;
+     display: flex;
+     flex-wrap: wrap;
+   
+     @include mq(sp) {
+       margin-top: 42px;
+     }
+   }
+   
+   .card__item {
+     //calc(cardを3列に - 余白24pxを3つのパーツで三等分する)
+     width: calc(33.3% - 24px * 2 / 3);
+     background: #fff;
+     padding: 16px;
+     border-radius: 4px;
+   
+     @include mq(pc) {
+       //3倍した次の要素以外(not)に付与される処理
+       &:not(:nth-child(3n + 1)) {
+         margin-left: 24px;
+       }
+   
+       //最初の3つの要素以外に付与される処理
+       &:nth-child(n + 4) {
+         margin-top: 24px;
+       }
+     }
+   
+     //calc(tabではcardを2列に - 余白24pxを2つのパーツで二等分する)
+     @include mq(tab) {
+       width: calc(50% - 24px * 1 / 2);
+   
+       //2倍した次の要素以外(not)に付与される処理
+       &:not(:nth-child(2n + 1)) {
+         margin-left: 24px;
+       }
+   
+       //最初の3つの要素以外に付与される処理
+       &:nth-child(n + 3) {
+         margin-top: 24px;
+       }
+     }
+   
+     @include mq(sp) {
+       width: 100%;
+       margin-left: 0;
+   
+       //最初の2の要素以外に付与される処理
+       &:nth-child(n + 2) {
+         margin-top: 24px;
+       }
+   
+     }
+   }
+   
+   .card__img {
+   
+     img {
+       width: 100%;
+     }
+   }
+   
+   .card__title {
+     font-family: $font-jp;
+     font-size: 20px;
+     font-weight: 700;
+     color: #6f7579;
+     margin-top: 4px;
+   }
+   
+   .card__text {
+     font-family: $font-jp;
+     font-weight: 700;
+     color: #6F7579;
+     line-height: (24 / 16);
+     margin-top: 4px;
+   }
