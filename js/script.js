@@ -3,50 +3,66 @@
 /*============================================================================
 ヘッダー、フッターの各セクションをクリックするとページ内リンクにアニメーションで移動する
 =============================================================================*/
-// #から始まるURLがクリックされたとき
-jQuery('a[href^="#"]').click(function() {
-    // headerクラスがついた要素の高さを取得
-    let header = jQuery(".header").innerHeight();
-    // 移動速度を指定（ミリ秒）
-    let speed = 300;
-    // hrefで指定されたidを取得
-    let id = jQuery(this).attr("href");
-    // idの値が#のみの場合→ターゲットをhtmlタグにしてトップへ戻る
-    let target = jQuery("#" == id ? "html" : id);
-    // ページのトップを基準にターゲットの位置を取得し、ヘッダー分の高さ引く
-    let position = jQuery(target).offset().top - header;
-    // ターゲットの位置までspeed速度で移動
-    jQuery("html, body").animate(
-        {
-            scrollTop: position
-        },
-        speed
-    );
-    return false;
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+      // デフォルトのリンク動作を無効化
+      e.preventDefault();
+
+      // headerクラスがついた要素の高さを取得
+      let header = document.querySelector(".header").offsetHeight;
+
+      // hrefで指定されたidを取得
+      let id = this.getAttribute("href");
+
+      // idの値が#のみの場合→ターゲットをhtmlタグにしてトップへ戻る
+      let target = id === "#" ? document.documentElement : document.querySelector(id);
+
+      // ページのトップを基準にターゲットの位置を取得し、ヘッダー分の高さ引く
+      let position = target.getBoundingClientRect().top + window.pageYOffset - header;
+
+      // ターゲットの位置までスクロール（アニメーションの速度は300ms）
+      window.scrollTo({
+          top: position,
+          behavior: "smooth"
+      });
+  });
 });
 
 /*==================================
 トップへ戻るボタン
 ==================================*/
-$(function() {
-    var pagetop = $('#page_top');
-    //ボタン非表示
-    pagetop.hide();
-    //80pxスクロールしたらボタン表示
-    $(window).scroll(function() {
-        if($(this).scrollTop() > 80) {
-            pagetop.fadeIn();　// ボタンが現れる時間 （msec）
-        // 画面がトップから80pxより上ならボタンを表示しない
-        }else{
-            pagetop.fadeOut(); // ボタンが消える時間（msec）
-        }
-    });
-    // ボタンをクリックしたらスクロールしてトップに戻る
-    pagetop.click(function() {
-        $('body, html').animate({scrollTop: 0}, 500);
-        return false;
-    });
+document.addEventListener('DOMContentLoaded', function() {
+  var pagetop = document.getElementById('page_top');
+  // ボタン非表示
+  pagetop.style.display = 'none';
+
+  // スクロールイベントを監視
+  window.addEventListener('scroll', function() {
+      if (window.pageYOffset > 80) {
+          // ボタンが現れる（フェードイン風）
+          pagetop.style.display = 'block';
+          pagetop.style.opacity = 1;
+          pagetop.style.transition = 'opacity 0.5s';
+      } else {
+          // ボタンが消える（フェードアウト風）
+          pagetop.style.opacity = 0;
+          pagetop.style.transition = 'opacity 0.5s';
+          setTimeout(function() {
+              pagetop.style.display = 'none';
+          }, 500);  // フェードアウトが終わるまで非表示にしない
+      }
+  });
+
+  // ボタンをクリックしたらトップにスクロール
+  pagetop.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+      });
+  });
 });
+
 
 /*==================================
 ハンバーガーボタンとドロワー
@@ -114,64 +130,163 @@ const createSwiper = () => {
 /*==================================
 google form
 ==================================*/
-let $form = $('#js-form');
+// フォーム、送信ボタン、プライバシーチェックボックスの要素を取得
+const form = document.getElementById('js-form');
+const submitButton = document.getElementById('js-submit');
+const privacyCheckbox = document.querySelector('.contact-privacy-input');
 
-$form.submit(function(e) {
-    $.ajax({
-     url: $form.attr('action'),
-     data: $form.serialize(),
-     type: "POST",
-     dataType: "xml",
-     statusCode: {
-        0: function() {
-          //送信に成功したときの処理
-          $form.slideUp(),
-          $('#js-success').slideDown();
-        },
-        200: function() {
-          //送信に失敗したときの処理
-          $form.slideUp(),
-          $('#js-error').slideDown();
-        }
+// 各要素が存在するか確認してからイベントリスナーを設定
+if (form) {
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    // フォーム送信時の処理
+  });
+} else {
+  console.error("フォームが見つかりません");
+}
+
+if (privacyCheckbox) {
+  privacyCheckbox.addEventListener('change', function() {
+    checkForm();
+  });
+} else {
+  console.error("プライバシーチェックボックスが見つかりません");
+}
+
+// フォーム送信時の処理
+form.addEventListener('submit', function(e) {
+  // フォームのデフォルトの送信動作をキャンセル
+  e.preventDefault();
+
+  // AJAXリクエストを作成するためにXMLHttpRequestを使用
+  const xhr = new XMLHttpRequest();
+  // フォームのaction属性にあるURLにPOSTリクエストを送信
+  xhr.open('POST', form.getAttribute('action'), true);
+  // フォームデータをURLエンコード形式で送信することを指定
+  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+  // リクエストのステータスが変わるたびに呼び出される関数
+  xhr.onreadystatechange = function() {
+    // リクエストが完了したかどうかを確認
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      // ステータスが0の場合（通信成功時の処理）
+      if (xhr.status === 0) {
+        // フォームを非表示にし、成功メッセージを表示
+        form.style.display = 'none';
+        document.getElementById('js-success').style.display = 'block';
+      // ステータスが200の場合（通信失敗時の処理）
+      } else if (xhr.status === 200) {
+        // フォームを非表示にし、エラーメッセージを表示
+        form.style.display = 'none';
+        document.getElementById('js-error').style.display = 'block';
       }
-    });
-    return false;
-  });
-
-// formの入力確認
-  let $submit = $('#js-submit');
-
-  // フォームの入力が変更されたときに実行される処理
-  $('#js-form input, #js-form textarea, #js-form select').on('change', function() {
-    // 入力項目が空でない場合
-    if (
-      $('#js-form .required').filter(function() {
-        return $(this).find('input, textarea, select').val() === '';
-      }).length === 0 &&
-      $('#privacy.contact-privacy-input').prop('checked')
-    ) {
-      // ボタンに -active クラスを追加し、disabled を解除する
-      $submit.prop('disabled', false).addClass('-active');
-    } else {
-      // ボタンから -active クラスを削除し、disabled を付与する
-      $submit.prop('disabled', true).removeClass('-active');
     }
+  };
+
+  // フォームデータをシリアライズ（URLエンコード形式に変換）してリクエストを送信
+  const formData = new URLSearchParams(new FormData(form)).toString();
+  xhr.send(formData); // フォームデータをPOSTリクエストとして送信
+});
+
+// フォーム内の入力や選択が変更されたときに呼び出されるイベントリスナーを設定
+form.querySelectorAll('input, textarea, select').forEach(function(element) {
+  element.addEventListener('change', function() {
+    // フォームの入力状態を確認して送信ボタンを有効/無効にする関数を実行
+    checkForm();
+  });
+});
+
+// プライバシーチェックボックスの変更時に実行される処理
+privacyCheckbox.addEventListener('change', function() {
+  // チェックボックスの状態に応じて送信ボタンの状態を更新
+  checkForm();
+});
+
+// フォームの入力状況を確認してボタンの状態を切り替える関数
+function checkForm() {
+  // フォーム内の必須項目がすべて入力されているかを確認
+  const allFilled = Array.from(form.querySelectorAll('.required input, .required textarea, .required select')).every(function(input) {
+    return input.value !== ''; // 入力値が空でないかを確認
   });
 
-  // プライバシーチェックボックスが変更されたときに実行される処理
-  $('#privacy.contact-privacy-input').on('change', function() {
-    // プライバシーチェックボックスがチェックされているか確認
-    if (this.checked) {
-      // 入力項目が全て入力されている場合、ボタンに -active クラスを追加し、disabled を解除する
-      if (
-        $('#js-form .required').filter(function() {
-          return $(this).find('input, textarea, select').val() === '';
-        }).length === 0
-      ) {
-        $submit.prop('disabled', false).addClass('-active');
-      }
-    } else {
-      // チェックされていない場合、ボタンから -active クラスを削除し、disabled を付与する
-      $submit.prop('disabled', true).removeClass('-active');
-    }
+  // プライバシーチェックボックスがチェックされているかを確認
+  const isPrivacyChecked = privacyCheckbox.checked;
+
+  // 全ての必須項目が入力され、プライバシーチェックボックスがチェックされていれば送信ボタンを有効化
+  if (allFilled && isPrivacyChecked) {
+    submitButton.disabled = false; // ボタンを有効化
+    submitButton.classList.add('-active'); // クラスを追加してボタンの見た目を変更
+  } else {
+    // どれか一つでも条件を満たしていない場合は送信ボタンを無効化
+    submitButton.disabled = true; // ボタンを無効化
+    submitButton.classList.remove('-active'); // ボタンの見た目を戻す
+  }
+}
+
+form.querySelectorAll('input, textarea, select').forEach(function(element) {
+  element.addEventListener('change', function() {
+    // フォームの入力状態を確認して送信ボタンを有効/無効にする関数を実行
+    checkForm();
   });
+});
+
+// プライバシーチェックボックスの変更時に実行される処理
+privacyCheckbox.addEventListener('change', function() {
+  // チェックボックスの状態に応じて送信ボタンの状態を更新
+  checkForm();
+});
+
+// フォームの入力状況を確認してボタンの状態を切り替える関数
+function checkForm() {
+  // フォーム内の必須項目がすべて入力されているかを確認
+  const allFilled = Array.from(form.querySelectorAll('.required input, .required textarea, .required select')).every(function(input) {
+    return input.value !== ''; // 入力値が空でないかを確認
+  });
+
+  // プライバシーチェックボックスがチェックされているかを確認
+  const isPrivacyChecked = privacyCheckbox.checked;
+
+  // 全ての必須項目が入力され、プライバシーチェックボックスがチェックされていれば送信ボタンを有効化
+  if (allFilled && isPrivacyChecked) {
+    submitButton.disabled = false; // ボタンを有効化
+    submitButton.classList.add('-active'); // クラスを追加してボタンの見た目を変更
+  } else {
+    // どれか一つでも条件を満たしていない場合は送信ボタンを無効化
+    submitButton.disabled = true; // ボタンを無効化
+    submitButton.classList.remove('-active'); // ボタンの見た目を戻す
+  }
+}
+
+form.querySelectorAll('input, textarea, select').forEach(function(element) {
+  element.addEventListener('change', function() {
+    // フォームの入力状態を確認して送信ボタンを有効/無効にする関数を実行
+    checkForm();
+  });
+});
+
+// プライバシーチェックボックスの変更時に実行される処理
+privacyCheckbox.addEventListener('change', function() {
+  // チェックボックスの状態に応じて送信ボタンの状態を更新
+  checkForm();
+});
+
+// フォームの入力状況を確認してボタンの状態を切り替える関数
+function checkForm() {
+  // フォーム内の必須項目がすべて入力されているかを確認
+  const allFilled = Array.from(form.querySelectorAll('.required input, .required textarea, .required select')).every(function(input) {
+    return input.value !== ''; // 入力値が空でないかを確認
+  });
+
+  // プライバシーチェックボックスがチェックされているかを確認
+  const isPrivacyChecked = privacyCheckbox.checked;
+
+  // 全ての必須項目が入力され、プライバシーチェックボックスがチェックされていれば送信ボタンを有効化
+  if (allFilled && isPrivacyChecked) {
+    submitButton.disabled = false; // ボタンを有効化
+    submitButton.classList.add('-active'); // クラスを追加してボタンの見た目を変更
+  } else {
+    // どれか一つでも条件を満たしていない場合は送信ボタンを無効化
+    submitButton.disabled = true; // ボタンを無効化
+    submitButton.classList.remove('-active'); // ボタンの見た目を戻す
+  }
+}
