@@ -130,10 +130,6 @@ body {
     position: relative;
 }
 
-.fv-img {
-
-}
-
 .fv-contents {
     position: absolute;
     bottom: 26px;
@@ -143,10 +139,6 @@ body {
     background: url(../img/sp/bg_fv.png) no-repeat center center / cover;
     background-size: 100% auto;
     padding: 32px;
-}
-
-.fv-heading {
-
 }
 
 .fv-heading-main {
@@ -198,14 +190,6 @@ body {
 
 /* #service
 ========================= */
-.service {
-
-}
-
-.service-list {
-
-}
-
 .service-item {
     & + & {
         margin-top: 40px;
@@ -233,13 +217,6 @@ body {
 ========================= */
 .works {
     background-color: color.$bg-light;
-}
-
-.works-list {
-
-}
-
-.works-item {
 }
 
 .works-item-img {
@@ -309,24 +286,12 @@ body {
 
 /* #about
 ========================= */
-.about {
-
-}
-
-.about-container {
-
-}
-
 .about-img {
     margin-bottom: 32px;
 
     img {
         box-shadow: 0 4px 15px 0 rgba(color.$black, 0.15);
     }
-}
-
-.about-contents {
-
 }
 
 .about-text {
@@ -401,10 +366,6 @@ body {
     }
 }
 
-.message-contents {
-
-}
-
 .message-text {
     font-size: 16px;
     line-height: 1.6;
@@ -432,13 +393,6 @@ body {
     background-color: #fff;
     border-radius: 0px 0px 12px 12px;
     margin-top: 0;
-}
-
-.contact-form {
-}
-
-.contact-table {
-
 }
 
 .contact-row {
