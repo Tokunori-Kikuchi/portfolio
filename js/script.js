@@ -1,5 +1,3 @@
-
-
 /*============================================================================
 ヘッダー、フッターの各セクションをクリックするとページ内リンクにアニメーションで移動する
 =============================================================================*/
@@ -8,9 +6,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       // デフォルトのリンク動作を無効化
       e.preventDefault();
 
-      // headerクラスがついた要素の高さを取得
-      let header = document.querySelector(".header").offsetHeight;
-
       // hrefで指定されたidを取得
       let id = this.getAttribute("href");
 
@@ -18,7 +13,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       let target = id === "#" ? document.documentElement : document.querySelector(id);
 
       // ページのトップを基準にターゲットの位置を取得し、ヘッダー分の高さ引く
-      let position = target.getBoundingClientRect().top + window.pageYOffset - header;
+      let position = target.getBoundingClientRect().top + window.scrollY;
 
       // ターゲットの位置までスクロール（アニメーションの速度は300ms）
       window.scrollTo({
