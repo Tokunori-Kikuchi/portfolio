@@ -61,11 +61,34 @@ document.addEventListener('DOMContentLoaded', function() {
 /*==================================
 ハンバーガーボタンとドロワー
 ==================================*/
-$("#js-button-drawer").on("click", function() {
-    $(this).toggleClass("is-checked");
-    $("#js-drawer").slideToggle();
-    $("body").toggleClass("is-fixed");
+document.getElementById("js-button-drawer").addEventListener("click", function() {
+  this.classList.toggle("is-checked");
+  const drawer = document.getElementById("js-drawer");
+
+  if (this.classList.contains("is-checked")) {
+    drawer.style.display = "block";
+    drawer.style.opacity = 0; // 初期状態を透明に設定
+    setTimeout(() => {
+      drawer.style.transition = "opacity 0.5s"; // トランジションを設定
+      drawer.style.opacity = 1; // 透明度を1にして表示
+    }, 10); // 少し遅延を入れてトランジションを適用
+  } else {
+    drawer.style.transition = "opacity 0.5s"; // トランジションを設定
+    drawer.style.opacity = 0; // 透明度を0にして非表示
+    setTimeout(() => {
+      drawer.style.display = "none"; // 完全に非表示にする
+    }, 500); // トランジションの時間と同じにする
+  }
+
+  document.body.classList.toggle("is-fixed");
 });
+
+// 常に表示する場合の処理
+if (!document.getElementById("js-button-drawer").offsetParent) {
+  const drawer = document.getElementById("js-drawer");
+  drawer.style.display = "block"; // 常に表示
+  drawer.style.opacity = 1; // 透明度を1に設定
+}
 
 /*==================================
 swiper
